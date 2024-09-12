@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-page Site with Popups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 80%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .nav {
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-btn {
+            padding: 20px 20px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            font-size: 42px;
+            letter-spacing: 40px;
+            margin-bottom: 25px;
+            width: 100%; /* Make buttons full-width */
+            transition: transform 0.5s ease;
+        }
+
+        .nav-btn:hover {
+        font-size: 42px;
+        background-color: transparent;
+ /* ... existing styles ... */
+ transform: scale(1.2); /* This scales the button to 110% of its original size */
+}
+
+        .popup-wrapper {
+            width: 100%; /* Ensures full width */
+        }
+
+        .popup-content {
+            display: none;
+            margin-top: 0;
+            background-color: #111;
+            padding: 20px;
+        }
+
+        .popup-content.active {
+            display: block;
+        }
+
+        .column-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .column-container img {
+            max-width: 300px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .gallery img {
+            max-width: 200px;
+            height: auto;
+            margin: 10px;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html"><img src="https://uploads.staticjw.com/kt/ktackenstrom/kennethtackenstromwhite002.png" alt="Logo"></a>
+    </div>
+
+    <div class="nav">
+        <div class="popup-wrapper">
+            <button class="nav-btn" onclick="togglePopup('content1')" style="background-image: url('https://uploads.staticjw.com/kt/ktackenstrom/nav02.jpg');">ABOUT</button>
+            <div id="content1" class="popup-content">
+                <div class="column-container">
+                    <img src="https://uploads.staticjw.com/ta/tackochlovsalen/kenneth003.jpg" alt="Kenneth Täckenström">
+                    <div>
+                        <h3>Kenneth Täckenström</h3>
+                        <p>Arbetar som skulptör och formgivare. I samband med sitt arbete vid olika glasstudios bor han på olika platser i Sverige. Kenneth har ateljé i Roma på Gotland, i Tibro Skaraborg samt i Lima Dalarna. Han arbetar ur ett skulpturalt perspektiv där bruksfunktionen ibland blir ytterligare en dimension i de uttryck han eftersträvar och försöker uppnå. Rörelse - linje - dynamik och relationer är några ledtrådar i hans formspråk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup-wrapper">
+            <button class="nav-btn" onclick="togglePopup('content2')" style="background-image: url('https://uploads.staticjw.com/kt/ktackenstrom/nav03.jpg');">EXHIBITIONS</button>
+            <div id="content2" class="popup-content">
+                <div class="gallery">
+                    <img src="https://uploads.staticjw.com/kt/ktackenstrom/img_3680.jpg" alt="Exhibition 1">
+                    <img src="https://uploads.staticjw.com/kt/ktackenstrom/1629.jpg" alt="Exhibition 2">
+                    <img src="https://uploads.staticjw.com/kt/ktackenstrom/img-3956.jpg" alt="Exhibition 3">
+                    <img src="https://uploads.staticjw.com/kt/ktackenstrom/1591.jpg" alt="Exhibition 4">
+                    <img src="https://uploads.staticjw.com/ke/kennethtackenstrom/1847.jpg" alt="Exhibition 5">
+                </div>
+            </div>
+        </div>
+
+        <div class="popup-wrapper">
+            <button class="nav-btn" onclick="togglePopup('content3')" style="background-image: url('https://uploads.staticjw.com/kt/ktackenstrom/nav04.jpg');">PRODUCTS</button>
+            <div id="content3" class="popup-content">
+                <div class="gallery">
+                    <img src="https://uploads.staticjw.com/ke/kennethtackenstrom/1854.jpg" alt="Product Image 1">
+                    <img src="https://uploads.staticjw.com/kt/ktackenstrom/img-3791.jpg" alt="Product Image 2">
+                    <img src="https://uploads.staticjw.com/kt/ktackenstrom/studion.jpg" alt="Product Image 3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>© 2023 Your Company Name. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function togglePopup(contentId) {
+            // Hämta alla popup-fönster och dölja dem
+            var allPopups = document.querySelectorAll('.popup-content');
+            allPopups.forEach(function (popup) {
+                popup.classList.remove('active');
+            });
+
+            // Visa popup-fönstret under den klickade knappen
+            var content = document.getElementById(contentId);
+            if (content) {
+                content.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
